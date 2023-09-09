@@ -6,6 +6,8 @@ import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
@@ -86,9 +88,10 @@ fun CompaniesScreen() {
 @Composable
 fun DisplayCompanies(companies: List<Company>) {
 
-    Column(modifier = Modifier.padding(16.dp)){
-    for(company in companies) {
-        Text(text = "City: ${company.city}")
+    LazyColumn(modifier = Modifier.padding(16.dp)){
+    items(companies) { company ->
+        Text(text = " ------------------- ")
+        Text("City: ${company.city}")
         Text("ID: ${company.id}")
         Text("Title: ${company.title}")
         Text("Webpage: ${company.webpage}")
